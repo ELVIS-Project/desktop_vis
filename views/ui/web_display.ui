@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Web_Display</class>
+ <widget class="QDialog" name="Web_Display">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>814</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>vis Results Display</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/icons/vis-1-32.png</normaloff>:/icons/icons/vis-1-32.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWebView" name="webview">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
+     </property>
+     <property name="renderHints">
+      <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Save as...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_png">
+        <property name="text">
+         <string>&amp;PNG Image</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_csv">
+        <property name="text">
+         <string>CS&amp;V</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_html">
+        <property name="text">
+         <string>&amp;Web Page</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_excel">
+        <property name="text">
+         <string>E&amp;xcel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_close">
+        <property name="text">
+         <string>&amp;Close</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/icons/icons/dialog-close.png</normaloff>:/icons/icons/dialog-close.png</iconset>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btn_close</sender>
+   <signal>clicked()</signal>
+   <receiver>Web_Display</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>761</x>
+     <y>577</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
