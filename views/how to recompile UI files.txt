@@ -1,0 +1,13 @@
+1.) Run the "compile.sh" script from this directory.
+2.) If you're paranoid, check that the following change was made in "Ui_main_window.py".
+
+This line:
+        self.gui_pieces_list = QtGui.QTableView(self.groupBox)
+
+Becomes these lines:
+        class GuiPiecesList(QtGui.QTableView):
+            selection_changed = QtCore.pyqtSignal()
+            def selectionChanged(self, selected, deselected):
+                self.selection_changed.emit()
+                super(GuiPiecesList, self).selectionChanged(selected, deselected)
+        self.gui_pieces_list = GuiPiecesList(self.groupBox)
