@@ -33,11 +33,11 @@ worthwhile like 'vis is an awesome program for data analysis with music'!
 # Ensure we can import "vis"
 import imp
 try:
-    imp.find_module(u'vis')
+    imp.find_module(u'desktop_vis')
 except ImportError:
     import sys
     sys.path.insert(0, u'..')
 
-__all__ = ['analyzers', 'models', 'workflow']
+__all__ = ['models', 'views']
 
-from vis import analyzers, models, workflow
+from desktop_vis import models, views

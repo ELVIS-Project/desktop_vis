@@ -28,10 +28,10 @@ Hold VisQtMainWindow class, which controls the GUI for vis' PyQt4 interface.
 
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
-from vis.models.pyqt import ListOfFiles, WorkflowWrapper
-from vis.views.VisOffsetSelector import VisOffsetSelector
-from vis.views.web_view import VisWebView
-from vis.views.Ui_main_window import Ui_MainWindow
+from desktop_vis.models.pyqt import ListOfFiles, WorkflowWrapper
+from desktop_vis.views.VisOffsetSelector import VisOffsetSelector
+from desktop_vis.views.web_view import VisWebView
+from desktop_vis.views.Ui_main_window import Ui_MainWindow
 
 
 class VisQtMainWindow(QtGui.QMainWindow, QtCore.QObject):

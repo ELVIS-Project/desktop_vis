@@ -7,9 +7,6 @@
 # Filename: views/__init__.py
 # Purpose: Load the vis views modules.
 #
-# Attribution:  Based on the 'harrisonHarmony.py' module available at...
-#               https://github.com/crantila/harrisonHarmony/
-#
 # Copyright (C) 2012, 2013 Christopher Antila, Jamie Klassen
 #
 # This program is free software: you can redistribute it and/or modify
@@ -26,11 +23,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #-------------------------------------------------------------------------------
 
+__all__ = ['main', 'VisOffsetSelector', 'icons_rc', 'web_view', 'Ui_select_offset',
+           'Ui_web_display']
 
-
-__all__ = ['main', 'VisOffsetSelector', 'icons_rc', 'web_view']
-
-import main
-import VisOffsetSelector
-import icons_rc
-import web_view
+from desktop_vis.views import main
+from desktop_vis.views import VisOffsetSelector
+from desktop_vis.views import icons_rc
+from desktop_vis.views import web_view
+from desktop_vis.views import Ui_select_offset
+from desktop_vis.views import Ui_web_display

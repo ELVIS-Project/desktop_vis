@@ -28,7 +28,7 @@ Dialogue window to HTML output from vis.
 
 from os import getcwd
 from shutil import copyfile
-from vis.views.Ui_web_display import Ui_Web_Display
+from desktop_vis.views.Ui_web_display import Ui_Web_Display
 from PyQt4 import QtGui
 from PyQt4.QtCore import QUrl, Qt
 

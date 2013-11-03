@@ -32,14 +32,14 @@ Start vis with the PyQt4 interface.
 # Ensure we can import "vis"
 try:
     import imp
-    imp.find_module('vis')
+    imp.find_module('desktop_vis')
 except ImportError:
     import sys
     sys.path.insert(0, '..')
 
 import sys
 from PyQt4 import QtCore, QtGui
-from vis.views.main import VisQtMainWindow
+from desktop_vis.views.main import VisQtMainWindow
 
 
 class GuiController(QtCore.QObject):
