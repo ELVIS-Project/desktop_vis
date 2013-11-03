@@ -1,7 +1,7 @@
-vis
-===
+desktop-vis
+===========
 
-A "vertical interval series" analysis program for music21.
+A contrapuntal music analysis GUI application built on the VIS framework.
 
 Copyright Information:
 * All source code is subject to the GNU AGPL 3.0 Licence. A copy of this licence is included as doc/apg-3.0.txt.
@@ -10,9 +10,17 @@ Copyright Information:
 
 Software Dependencies
 =====================
-vis uses many software libraries to help with analysis. The following version numbers are the versions we use for development, but you may be able to use earlier and later versions too.
+VIS uses many software libraries to help with analysis. These are required dependencies:
 
-- Python 2.7.5
-- music21 1.6.0
-- pandas 0.12.0
-- mock 1.0.1 (for testing)
+- Python 2.7
+- PyQt4
+- music21
+- pandas
+- mock (for testing)
+
+These are recommended dependencies:
+
+- numexpr (improved performance for pandas)
+- Bottleneck (improved performance for pandas)
+- tables (HDF5 output for pandas)
+- openpyxl (Excel output for pandas)
