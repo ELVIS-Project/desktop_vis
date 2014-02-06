@@ -135,6 +135,7 @@ class WorkflowWrapper(QAbstractTableModel):
         self._pathnames = []  # hold a list of pathnames for before the WorkflowManager
         self._workm = None  # hold the WorkflowManager
         self._settings_changed = False  # whether setData() was called (for settings_changed())
+        self._when_done_import = None  # method to call when we're finished importing
 
     def rowCount(self, parent=QModelIndex()):
         """
@@ -326,6 +327,8 @@ class WorkflowWrapper(QAbstractTableModel):
                     # now that we imported, all the data's changed
                     ch_ind_1 = self.createIndex(0, 0)
                     ch_ind_2 = self.createIndex(len(self), self._num_cols - 1)
+                    # let the GUI know
+                    self._when_done_import()
                 else:
                     # only one cell has changed
                     ch_ind_1 = ch_ind_2 = self.createIndex(row, column)
@@ -392,6 +395,17 @@ class WorkflowWrapper(QAbstractTableModel):
     def __getitem__(self, index):
         "It's __getitem__(), what do you want?!"
         return self._workm[index]
+
+    def connect_workflow_signals(self, finished_import):
+        """
+        Connect the WorkflowManager's PyQt signals to the methods or functions given here.
+
+        "finished_import" is for the WorkM's "finished_import" signal.
+        """
+        print('--> type: ' + str(finished_import))  # DEBUG
+        self._when_done_import = finished_import
+        #self._workm.finished_import.connect(finished_import)
+        #pass
 
     def get_workflow_manager(self):
         """

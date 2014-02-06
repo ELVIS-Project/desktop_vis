@@ -36,7 +36,7 @@ try:
     imp.find_module(u'desktop_vis')
 except ImportError:
     import sys
-    sys.path.insert(0, u'..')
+    sys.path.insert(1, u'..')
 
 __all__ = ['models', 'views']
 

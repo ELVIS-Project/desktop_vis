@@ -106,8 +106,10 @@ class VisQtMainWindow(QtGui.QMainWindow, QtCore.QObject):
         self.ui.gui_pieces_list.setModel(self._work_wrap)
         self._prev_setts = None  # hold settings of previous experiment
 
-    # Methods Doing GUI Stuff ---------------------------------------------------
-    # Pressing Buttons in the Toolbar -----------------------
+    def here_is_the_app(self, app):
+        "Give the QApplication to the VisQtMainWindow."
+        self._app = app
+
     @QtCore.pyqtSlot()
     def _tool_import(self):
         "Activate the 'import' panel"
@@ -154,6 +156,9 @@ class VisQtMainWindow(QtGui.QMainWindow, QtCore.QObject):
         # Disable the details-selection until a particular piece is selected
         self.ui.grp_settings_for_piece.setEnabled(False)
         self.ui.grp_settings_for_piece.setVisible(False)
+        # We'll just have a less-detailed progress bar
+        self.ui.progress_bar.setMinimum(0)
+        self.ui.progress_bar.setMaximum(0)
 
     @QtCore.pyqtSlot()
     def _tool_about(self):
@@ -190,13 +195,14 @@ class VisQtMainWindow(QtGui.QMainWindow, QtCore.QObject):
         """
         if 0 != self._list_of_files.rowCount():
             self._tool_working()
+            # After the WorkflowManager has been created, this method connects relevant signals.
+            self._work_wrap.connect_workflow_signals(self._tool_analyze)
             # put everything in the WorkflowWrapper, so we can collect settings and whatever
             self._work_wrap.insertRows(None, self._list_of_files.rowCount())
             for new_row, pathname in enumerate(self._list_of_files):
                 self._work_wrap.setData((new_row, WorkflowWrapper.filename),
                                         pathname,
                                         QtCore.Qt.EditRole)
-            self._tool_analyze()
         else:
             # then ask the user to stop being a jerk
             QtGui.QMessageBox.information(None,

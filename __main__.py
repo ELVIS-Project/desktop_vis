@@ -35,7 +35,7 @@ try:
     imp.find_module('desktop_vis')
 except ImportError:
     import sys
-    sys.path.insert(0, '..')
+    sys.path.insert(1, '..')
 
 import sys
 from PyQt4 import QtCore, QtGui
@@ -54,13 +54,7 @@ class GuiController(QtCore.QObject):
         super(GuiController, self).__init__()
         self.app = QtGui.QApplication(sys.argv)
         self.window = VisQtMainWindow()
-
-    def setup_signals(self):
-        """
-        Set methods of this controller as the slot for relevant signals emitted
-        by the GUI.
-        """
-        pass
+        self.window.here_is_the_app(self.app)
 
 
 def main():
